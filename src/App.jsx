@@ -11,7 +11,13 @@ const App = () => {
   const [filteredData, setFiltereddata] = useState([]);
   const [inputSearch, setInputsearch] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
-  
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  const regionName = [...new Set(restData.map((list) => list.region))];
+
   useEffect(() => {
     fetchdata();
   }, []);
@@ -33,12 +39,6 @@ const App = () => {
       setLoading(false);
     }
   }
-
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
-
-  const regionName = [...new Set(restData.map((list) => list.region))];
 
   useEffect(() => {
     let filteredCountry = [...restData];
@@ -85,7 +85,7 @@ const App = () => {
           <p className="text-xl font-semibold text-center mt-20">Loading...</p>
         ) : filteredData.length > 0 ? (
           filteredData.map((data, index) => (
-            <Cardsection key={index + 1} conData={data} theme={theme} />
+            <Cardsection key={index + 1} countryData={data} theme={theme} />
           ))
         ) : (
           <p className="text-xl font-semibold text-center mt-20">

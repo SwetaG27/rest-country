@@ -1,6 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 
 const Searchbar = ({ value, inputChange, theme }) => {
+  
   function handleChange(e) {
     inputChange(e.target.value);
   }
