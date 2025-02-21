@@ -10,13 +10,13 @@ const Header = ({ toggleTheme, theme }) => {
     >
       <h1 className="font-bold text-lg md:text-2xl lg:ml-20 xl:text-4xl 2xl:ml-52">Where in the world?</h1>
 
-      <div className="flex items-center cursor-pointer lg:mr-24 xl:mr-22 2xl:mr-54" onClick={toggleTheme}>
+      <div className="flex items-center  lg:mr-24 xl:mr-22 2xl:mr-54" onClick={toggleTheme}>
         {theme === "dark" ? (
-          <IoMoonSharp className="" size={20} />
+          <IoMoonSharp className="cursor-pointer" size={20} />
         ) : (
           <BsMoon size={20} />
         )}
-        <button className="ml-2 font-medium">Dark Mode</button>
+        <button className="ml-2 cursor-pointer font-medium">Dark Mode</button>
       </div>
     </div>
   );
