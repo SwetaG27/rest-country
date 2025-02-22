@@ -69,7 +69,9 @@ const Countrydetail = ({ restData, loading }) => {
           </div>
 
           <div className="w-full md:w-1/2 flex flex-col gap-6">
-            <h1 className="text-3xl font-bold">{country.name.common}</h1>
+            <h1 className="text-3xl font-bold">
+              {country.name.common || "No Country"}
+            </h1>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
@@ -78,41 +80,42 @@ const Countrydetail = ({ restData, loading }) => {
                     .slice(-1)
                     .map(([code, { common }]) => (
                       <p className="text-lg" key={code}>
-                        <strong>Native Name:</strong> {common}
+                        <strong>Native Name:</strong> {common || "NA"}
                       </p>
                     ))}
 
                 <p className="text-lg">
                   <strong>Population:</strong>
-                  {country.population.toLocaleString()}
+                  {country.population.toLocaleString() || "NA"}
                 </p>
                 <p className="text-lg">
-                  <strong>Region:</strong> {country.region}
+                  <strong>Region:</strong> {country.region || "NA"}
                 </p>
                 <p className="text-lg">
-                  <strong>Sub Region:</strong> {country.subregion}
+                  <strong>Sub Region:</strong> {country.subregion || "NA"}
                 </p>
                 <p className="text-lg">
-                  <strong>Capital:</strong> {country.capital}
+                  <strong>Capital:</strong> {country.capital || "NA"}
                 </p>
               </div>
 
               <div>
                 <p className="text-lg">
-                  <strong>Top Level Domain:</strong> {country.tld}
+                  <strong>Top Level Domain:</strong> {country.tld || "NA"}
                 </p>
 
                 {country.currencies &&
                   Object.entries(country.currencies).map(([code, { name }]) => (
                     <p key={code} className="text-lg">
-                      <strong>Currency:</strong> {name}
+                      <strong>Currency:</strong> {name || "NA"}
                     </p>
                   ))}
 
                 <p className="text-lg">
                   <strong>Languages:</strong>
-                  {country.languages &&
-                    Object.values(country.languages).join(", ")}
+                  {(country.languages &&
+                    Object.values(country.languages).join(", ")) ||
+                    "NA"}
                 </p>
               </div>
             </div>
@@ -127,8 +130,8 @@ const Countrydetail = ({ restData, loading }) => {
                     (c) => c.cca3 === borderCode
                   );
                   return (
-                    <p
-                      key={borderCode}
+                    <Link  key={borderCode} to={`/country/${borderCountry.name.common}`}>   <p
+                     
                       className={`shadow-lg px-6 py-2 rounded-lg text-center
                 ${
                   theme === "dark"
@@ -137,7 +140,7 @@ const Countrydetail = ({ restData, loading }) => {
                 }`}
                     >
                       {borderCountry ? borderCountry.name.common : borderCode}
-                    </p>
+                    </p></Link>
                   );
                 })}
               </div>

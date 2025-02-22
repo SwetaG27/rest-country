@@ -95,7 +95,7 @@ const Homepage = ({ restData, loading }) => {
             subRegion={subRegionName}
             onSelectSubregion={setSelectedSubRegion}
           />
-          <Sortdropdown sortType={sortType} setSortType={setSortType} />
+          <Sortdropdown  setSortType={setSortType} />
         </div>
       </div>
 
@@ -103,7 +103,7 @@ const Homepage = ({ restData, loading }) => {
         {loading ? (
           <p className="text-xl font-semibold text-center mt-20">Loading...</p>
         ) : sortedData.length > 0 ? (
-          sortedData.map((data, index) => (
+          sortedData.map((data) => (
             <Link key={data.name.common} to={`/country/${data.name.common}`}>
               <Cardsection countryData={data} />
             </Link>

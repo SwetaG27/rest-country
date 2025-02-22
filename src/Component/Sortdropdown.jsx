@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ThemeContext } from "../Themecontext";
 
-const Sortdropdown = ({ sortType, setSortType }) => {
+const Sortdropdown = ({  setSortType }) => {
   const { theme } = useContext(ThemeContext);
 
   function handleChange(e) {
