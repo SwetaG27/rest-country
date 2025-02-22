@@ -83,7 +83,7 @@ const Countrydetail = ({ restData, loading }) => {
                     ))}
 
                 <p className="text-lg">
-                  <strong>Population:</strong>{" "}
+                  <strong>Population:</strong>
                   {country.population.toLocaleString()}
                 </p>
                 <p className="text-lg">
@@ -110,7 +110,7 @@ const Countrydetail = ({ restData, loading }) => {
                   ))}
 
                 <p className="text-lg">
-                  <strong>Languages:</strong>{" "}
+                  <strong>Languages:</strong>
                   {country.languages &&
                     Object.values(country.languages).join(", ")}
                 </p>
