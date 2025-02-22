@@ -1,4 +1,8 @@
-const Cards = ({ name, flag, population, region, capital, theme }) => {
+import { useContext } from "react";
+import { ThemeContext } from "../Themecontext";
+
+const Cards = ({ name, flag, population, region, capital }) => {
+  const { theme } = useContext(ThemeContext);
   return (
     <div
       className={`w-64 rounded-lg shadow-lg overflow-hidden m-4 transition-all 
@@ -19,7 +23,7 @@ const Cards = ({ name, flag, population, region, capital, theme }) => {
           <strong>Region:</strong> {region}
         </p>
         <p className="mb-5">
-          <strong>Capital:</strong> {capital?capital:"NA"}
+          <strong>Capital:</strong> {capital ? capital : "NA"}
         </p>
       </div>
     </div>

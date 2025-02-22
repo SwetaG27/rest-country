@@ -5,20 +5,3 @@
     font-family: "Nunito Sans", serif, system-ui, sans-serif;
   }
 }
-
-:root {
-  --background-light: hsl(0, 0%, 98%);
-  --text-light: black;
-  --background-dark: hsl(207, 26%, 17%);
-  --text-dark: white;
-}
-
-[data-theme="light"] {
-  background-color: var(--background-light);
-  color: var(--text-light);
-}
-
-[data-theme="dark"] {
-  background-color: var(--background-dark);
-  color: var(--text-dark);
-}

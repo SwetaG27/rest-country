@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { ThemeContext } from "../Themecontext";
 import Cards from "./Cards";
 
-const Cardsection = ({ countryData, theme }) => {
+const Cardsection = ({ countryData }) => {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <div className="flex justify-center flex-wrap my-1">
       <Cards
